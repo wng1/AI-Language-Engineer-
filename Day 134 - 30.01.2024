@@ -1,0 +1,41 @@
+1) Analyse text with AI 
+
+In order to approach this, we need to detect the language from the text, extra features when analysing the text will be its sentiment,
+extracting key phrases, entities and linked entities.
+
+AI techniques will apply statistical and semantic models to enable developers to create applications that extract:
+- meaning
+- insights
+
+There is a public API that can be utilised to your own code.
+
+When detecting, here are a few things:
+
+1) Language detection
+2) Key Phrases extraction
+3) Entities and Entity Linking as well as Entity Recognition
+4) Sentiment analysis
+
+
+Example of a JSON format when detecting language. This can be used to send to the input stream such as Event Hub input (source) to evaluate following text
+such as Language Detection, first.  By adding extra metadata such as country hint, it will help improve the prediction performance. 
+
+{
+    "kind": "LanguageDetection",
+    "parameters": {
+        "modelVersion": "latest"
+    },
+    "analysisInput":{
+        "documents":[
+              {
+                "id": "1",
+                "text": "Hi",
+                "countryHint": "UK"
+              },
+              {
+                "id": "2",
+                "text": "Bonjour"
+              }
+        ]
+    }
+}
