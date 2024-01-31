@@ -1,0 +1,32 @@
+#Simple Request to send in a payload header and JSON format
+
+{
+  "documents": 
+[
+  {
+  "id": "1",
+  "text": "Hello"
+  }
+]
+}
+
+
+#Simple Response request received in identifying the language using its best confidence level
+
+{
+  "documents"@
+  [  
+    {
+    "id": "1",
+    "detectedlanguage": {
+      "name": "Spanish",
+       "iso6391Name": "es",
+       "confidenceScore": 0.999
+    },
+     "warnings" []
+    }
+],
+"errors": [],
+"modelVersion": "2022-10-01"
+}
+
