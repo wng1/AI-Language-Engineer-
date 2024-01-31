@@ -30,3 +30,56 @@
 "modelVersion": "2022-10-01"
 }
 
+
+#Simple Request response on Key extraction of text
+
+ {
+    "kind": "KeyPhraseExtraction",
+    "parameters": {
+        "modelVersion": "latest"
+  },
+  "analysisInput":
+  {
+    "documents":
+      [
+      {
+        "id": "1",
+        "language": "en",
+        "text": "Test"
+      },
+      {
+        "id": "2",
+        "language": "en",
+        "text": "How are you?"
+      }
+      ]
+  }
+}
+
+
+#Simple Response on Key extraction of text
+
+{
+    "kind": "KeyPhraseExtractionResults",
+    "results": {
+    "documents": [   
+        {
+         "id": "1",
+         "keyPhrases": [
+           "change",
+           "Test"
+         ],
+         "warnings": []
+       },
+       {
+         "id": "2",
+         "keyPhrases": [
+           "How",
+         ],
+         "warnings": []
+       }
+],
+    "errors": [],
+    "modelVersion": "2024-01-31"
+    }
+}
