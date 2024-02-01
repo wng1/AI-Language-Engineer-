@@ -1,0 +1,21 @@
+#pip install python-dotenv
+
+from dotenv import load_dotenv
+import os
+
+#import namespaces
+
+from azure.core.credentials import AzureKeyCredentials
+from azure.ai.textanalytics import TextAnalyticsClient
+
+def main():
+  try:
+
+  except Exception as exc:
+    print(exc)
+
+
+if __name__ == "__main__":
+  main()
+
+
