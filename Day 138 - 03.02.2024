@@ -1,0 +1,21 @@
+Containers enables you to host Azure AI services either:
+- on-premises
+- in Azure
+
+If your application uses sensitive data in an on-premises SQL server
+to call an Azure AI services service,you can deploy Azure AI services 
+in containers on the same network.
+
+Now your data can stay on your local network and not be passed to the cloud.
+Deploying Azure AI services in a container on-premises will also decrease
+the latency between the service and your local data, which can improve
+performance.
+
+Learning to create containers for reuse, deploy the container and secure it.
+At the same time, we would like to consume the Azure AI services from a container.
+
+Use Azure AI services containers
+
+There are container images for Azure AI services that can be used to deploy a containerized
+services that encapsulates the individual Azure AI services service API.
+
