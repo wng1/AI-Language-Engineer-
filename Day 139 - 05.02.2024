@@ -79,6 +79,7 @@ Once that is done, link the Event Hub as Input to the job.
 - Event Serialisation - JSON
 = Save
 
+
 >> Outputs
 + Add SQL Database
 
@@ -93,3 +94,27 @@ Once that is done, link the Event Hub as Input to the job.
 - Max Batch Count (10,000)
 = Save
 
+>> Query
+
+Here we can select what data goes into the output table 
+
+SELECT 
+  message
+INTO 
+  outputstream
+FROM
+  inputstream
+= Save
+
+====>  Start Stream Analytics Job when this is all done
+
+To see the history in the SQL database, login and query the database by selecting Top 100, etc. 
+
+You can make a simple query such as:
+
+SELECT COUNT(*)
+FROM message
+
+
+6. Power BI - Dashboard
+You can connect your database to the dashboard
