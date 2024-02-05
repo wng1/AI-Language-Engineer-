@@ -20,6 +20,13 @@ Once created, go to the new Event Hub Namespace you created and click on + Event
 pip install azure-eventhub
 pip install psutil
 
+### Give Database name as DB1 ####
+
+CREATE TABLE DATA
+(
+  message VARCHAR(200)
+)
+
 3. Python Code
 
 import psutil
@@ -47,6 +54,42 @@ try:
 except KeyboardInterrupt:
     producer.close()
 
-4. Visit "myevent" again and click on "Process Data" in the Features sub-heading, Click Explore to see real-time insight from events
+4. Visit "myevent" again and click on "Process Data" in the Features sub-heading, Click Explore to see real-time insight from events.
+This is a quick test to see if the data is running in the Event Hub. Now when you have data being ingested, it would be good to either
+do something as it comes through, this can be extracting, transforming or loading or querying. Many possibilities to do what is 
+appropriate to the workflow and best practices of getting the right data across.
 
+5. Create Stream Analytics Job
+- Job Name, Resource group (same as we created in Step 1)
+- Location
+- Hosting environment will be on the cloud as we utilise Cloud's services
+- Streaming unit (1) 
+
+Once that is done, link the Event Hub as Input to the job. 
+>> Inputs
++ Add Stream Input
+
+- Input Alias - inputstream
+- Select Event Hub from your subscriptions
+- EventHub Namespace
+- Event Hub Name - Use existing (myevent)
+- Event Hub consumer group - Use existing ($Default)
+- Authentication Mode - Connection String
+- Event Hub Policy Name - Use Existing
+- Event Serialisation - JSON
+= Save
+
+>> Outputs
++ Add SQL Database
+
+- Output Alias - outputstream
+- Select SQL Databse from your subscriptions
+- Database - db1
+- Authentication mode - Connection String
+- Username
+- Password
+- Table - data
+- Merge all input partitions into a single writer
+- Max Batch Count (10,000)
+= Save
 
