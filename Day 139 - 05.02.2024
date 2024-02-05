@@ -1,0 +1,52 @@
+Steps Instructions
+
+1. Event Hub
+- Create Event Hub Namespace
+- Create New Resource Group
+- Give Event Hub a namespace name
+- Choose your location
+- Choose Pricing Tier (Free, Standed - 20 Consumers, 1000 Brokered Connections)
+- Throughput Units (1)
+= Review + Create
+
+Once created, go to the new Event Hub Namespace you created and click on + Event Hub
+- Create Event Hub - Provide Name, Partition Ccount (1-2) and Message Retention (1), Capture - (Off)
+- Shared Access Policies - Provide Poliy Name, Click "Manage" checkbox
+- Use the Connection String -Primary Key to connect to your Python code for configuring the Event Publisher which will be used
+
+
+
+2. Pre-requisite
+pip install azure-eventhub
+pip install psutil
+
+3. Python Code
+
+import psutil
+import datetime
+import os
+import socket
+import json
+
+from azure.eventhub import EventHubProducerClient, EventData
+
+event_hub_name = 'myevent'
+event_hub_connection_string = '#####################################'
+
+producer = EventHubProducerClient.from_connection_string(conn_str=event_hub_connection_string, eventhub_name=event_hub_name)
+
+hostname = "Test"
+
+try:
+  while True:
+    event_data_batch = producer.create_batch()
+    print(hostname)
+    event_data_batch.add(EventData(hostname))
+    producer.send_batch(Event_data_batch)
+
+except KeyboardInterrupt:
+    producer.close()
+
+4. Visit "myevent" again and click on "Process Data" in the Features sub-heading, Click Explore to see real-time insight from events
+
+
