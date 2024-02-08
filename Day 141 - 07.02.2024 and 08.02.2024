@@ -1,0 +1,53 @@
+Event Hubs  (High Draft Level)
+
+import asyncio
+import logging
+
+#########Main Body############
+asyn def main():
+  try:
+
+  except Exception as e:
+    logging.error("Error")
+
+
+#########Call############
+asyn def call_api():
+
+  pass
+
+#########Response############
+async def process_response(response):
+
+  pass
+
+
+#########Session############
+
+async def send():
+  while True:
+    try:
+        await call_api_send()
+        await asyncio.sleep(60)
+    except Exception as e:
+      logging.error("Error")
+
+async def call_api_send:
+  logging.info("Checkpoint")
+
+async def listen():
+  while True:
+    try:
+      message = await receive()
+      process_message(message)
+
+async def message():
+  pass
+
+async def process_message(message)
+  pass
+
+if __name__ = '__main__':
+  logging.basicConfig(level=logging.INFO)
+  asyncio.run(main())
+
