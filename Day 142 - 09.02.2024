@@ -1,0 +1,6 @@
+CREATE TABLE data (
+    message_id BIGINT IDENTITY(1,1) PRIMARY KEY,
+);
+
+When utilising the Azure Data Studiom use the abovementioned SQL as different versions across platforms differ in the SQL statements.
+
